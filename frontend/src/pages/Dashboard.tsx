@@ -41,6 +41,7 @@ const Dashboard: React.FC = () => {
     const today = new Date().toDateString();
     const completedToday = tasks.filter(t => 
       t.isCompleted && 
+      t.completedAt &&
       new Date(t.completedAt).toDateString() === today
     ).length;
 

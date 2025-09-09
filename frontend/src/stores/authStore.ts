@@ -27,7 +27,8 @@ interface RegisterData {
   lastName: string;
 }
 
-const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+// Fixed: Use VITE_ prefix for Vite environment variables
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 export const useAuthStore = create<AuthState>()(
   persist(

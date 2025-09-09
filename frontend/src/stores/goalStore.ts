@@ -26,7 +26,8 @@ interface GoalState {
   updateGoalProgress: (goalId: string, points: number) => Promise<void>;
 }
 
-const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+// Fixed: Use VITE_ prefix for Vite environment variables
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 const getAuthHeaders = () => {
   const token = JSON.parse(localStorage.getItem('auth-storage') || '{}')?.state?.token;
